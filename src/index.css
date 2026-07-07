@@ -1,5 +1,4 @@
 @import "tailwindcss";
-
 @theme {
   /* Color — drawn from the NEW-NET mark: deep indigo + signal cyan */
   --color-navy: #2b2e83;
@@ -11,16 +10,13 @@
   --color-paper: #f6f7fb;
   --color-line: #e2e5ee;
   --color-whatsapp: #25d366;
-
-  --font-display: "Space Grotesk", "Inter", sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
+  --font-display: "Nunito", sans-serif;
+  --font-body: "Nunito", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 }
-
 html {
   scroll-behavior: smooth;
 }
-
 body {
   margin: 0;
   background: var(--color-paper);
@@ -28,7 +24,6 @@ body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
 }
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

@@ -1,4 +1,5 @@
 import SignalDivider from "./SignalDivider";
+import Reveal from "./Reveal";
 
 const facts = [
   {
@@ -50,81 +51,56 @@ export default function About() {
       />
 
       <div className="relative mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:px-8 sm:py-20 md:grid-cols-[1fr_0.8fr] md:gap-16">
-        <div className="abt-reveal">
-          <p className="font-mono text-[12px] font-medium uppercase tracking-[0.14em] text-cyan">
-            About us
-          </p>
-          <h2 className="mt-2 font-display text-[28px] font-bold tracking-tight text-ink sm:text-[34px]">
-            A computer shop that also fixes things.
-          </h2>
-          <p className="mt-4 max-w-md text-[14.5px] leading-relaxed text-muted">
-            NEW-NET Services Nigeria Limited has been supplying computers and
-            accessories to individuals and businesses in Abuja, alongside
-            hands-on networking, maintenance and engineering support. We're
-            not just a shop — our engineers set up, service and troubleshoot
-            what we sell.
-          </p>
-          <SignalDivider className="mt-8 h-4 w-32 text-line" />
-        </div>
+        <Reveal>
+          <div>
+            <p className="font-mono text-[12px] font-medium uppercase tracking-[0.14em] text-cyan">
+              About us
+            </p>
+            <h2 className="mt-2 font-display text-[28px] font-bold tracking-tight text-ink sm:text-[34px]">
+              A computer shop that also fixes things.
+            </h2>
+            <p className="mt-4 max-w-md text-[14.5px] leading-relaxed text-muted">
+              NEW-NET Services Nigeria Limited has been supplying computers and
+              accessories to individuals and businesses in Abuja, alongside
+              hands-on networking, maintenance and engineering support. We're
+              not just a shop — our engineers set up, service and troubleshoot
+              what we sell.
+            </p>
+            <SignalDivider className="mt-8 h-4 w-32 text-line" />
+          </div>
+        </Reveal>
 
         <dl className="grid grid-cols-1 gap-3 self-start">
           {facts.map((fact, i) => (
-            <div
-              key={fact.label}
-              className="abt-reveal group flex items-center gap-4 rounded-2xl border border-line bg-paper px-5 py-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-navy/30 hover:shadow-[0_14px_32px_-16px_rgba(43,46,131,0.25)]"
-              style={{ animationDelay: `${120 + i * 90}ms` }}
-            >
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-navy/[0.06] transition-colors duration-300 group-hover:bg-cyan/10">
-                <svg
-                  viewBox="0 0 24 24"
-                  className="h-5 w-5 text-navy"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  {fact.icon}
-                </svg>
+            <Reveal key={fact.label} delay={120 + i * 90} as="div">
+              <div className="group flex items-center gap-4 rounded-2xl border border-line bg-paper px-5 py-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-navy/30 hover:shadow-[0_14px_32px_-16px_rgba(43,46,131,0.25)]">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-navy/[0.06] transition-colors duration-300 group-hover:bg-cyan/10">
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="h-5 w-5 text-navy"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    {fact.icon}
+                  </svg>
+                </div>
+                <div className="min-w-0">
+                  <dt className="font-mono text-[11px] uppercase tracking-wide text-muted">
+                    {fact.label}
+                  </dt>
+                  <dd className="mt-0.5 truncate font-display text-[14px] font-semibold text-ink">
+                    {fact.value}
+                  </dd>
+                </div>
               </div>
-              <div className="min-w-0">
-                <dt className="font-mono text-[11px] uppercase tracking-wide text-muted">
-                  {fact.label}
-                </dt>
-                <dd className="mt-0.5 truncate font-display text-[14px] font-semibold text-ink">
-                  {fact.value}
-                </dd>
-              </div>
-            </div>
+            </Reveal>
           ))}
         </dl>
       </div>
-
-      <style>{`
-        .abt-reveal {
-          opacity: 1;
-        }
-        @supports (animation-timeline: view()) {
-          .abt-reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: abt-reveal-in linear both;
-            animation-timeline: view();
-            animation-range: entry 0% cover 25%;
-          }
-        }
-        @keyframes abt-reveal-in {
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .abt-reveal {
-            opacity: 1 !important;
-            transform: none !important;
-            animation: none !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

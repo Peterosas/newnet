@@ -1,6 +1,7 @@
 import type { ReactElement } from "react";
 import { business } from "../data/business";
 import SignalDivider from "./SignalDivider";
+import Reveal from "./Reveal";
 
 // One simple line-icon per service, drawn in the same stroke language as
 // the wordmark and the hero graphic (currentColor, ~2px, rounded joins).
@@ -36,85 +37,60 @@ export default function Services() {
       />
 
       <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="font-mono text-[12px] font-medium uppercase tracking-[0.14em] text-cyan">
-              What we do
+        <Reveal>
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="font-mono text-[12px] font-medium uppercase tracking-[0.14em] text-cyan">
+                What we do
+              </p>
+              <h2 className="mt-2 max-w-lg font-display text-[28px] font-bold tracking-tight text-ink sm:text-[34px]">
+                Beyond the sale.
+              </h2>
+              <SignalDivider className="mt-5 h-4 w-28 text-line" />
+            </div>
+            <p className="max-w-xs text-[13.5px] leading-relaxed text-muted sm:text-right">
+              Every device we sell is backed by engineers who install it,
+              network it, and keep it running.
             </p>
-            <h2 className="mt-2 max-w-lg font-display text-[28px] font-bold tracking-tight text-ink sm:text-[34px]">
-              Beyond the sale.
-            </h2>
-            <SignalDivider className="mt-5 h-4 w-28 text-line" />
           </div>
-          <p className="max-w-xs text-[13.5px] leading-relaxed text-muted sm:text-right">
-            Every device we sell is backed by engineers who install it,
-            network it, and keep it running.
-          </p>
-        </div>
+        </Reveal>
 
         <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {business.services.map((service, i) => (
-            <div
-              key={service.title}
-              className="svc-card group relative overflow-hidden rounded-2xl border border-line bg-paper p-6 transition-all duration-300 hover:-translate-y-1 hover:border-navy/30 hover:shadow-[0_18px_40px_-18px_rgba(43,46,131,0.28)]"
-              style={{ animationDelay: `${i * 90}ms` }}
-            >
-              {/* soft corner accent, grows on hover */}
-              <span
-                aria-hidden="true"
-                className="pointer-events-none absolute -right-8 -top-8 h-20 w-20 rounded-full bg-navy/[0.04] transition-transform duration-500 ease-out group-hover:scale-125"
-              />
-
-              <div className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-navy/[0.06] transition-colors duration-300 group-hover:bg-cyan/10">
-                <svg
-                  viewBox="0 0 24 24"
-                  className="h-6 w-6 text-navy"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+            <Reveal key={service.title} delay={i * 90} distance={24}>
+              <div className="group relative overflow-hidden rounded-2xl border border-line bg-paper p-6 transition-all duration-300 hover:-translate-y-1 hover:border-navy/30 hover:shadow-[0_18px_40px_-18px_rgba(43,46,131,0.28)]">
+                {/* soft corner accent, grows on hover */}
+                <span
                   aria-hidden="true"
-                >
-                  {icons[service.title]}
-                </svg>
-              </div>
+                  className="pointer-events-none absolute -right-8 -top-8 h-20 w-20 rounded-full bg-navy/[0.04] transition-transform duration-500 ease-out group-hover:scale-125"
+                />
 
-              <h3 className="relative mt-5 font-display text-[15px] font-semibold tracking-tight text-ink">
-                {service.title}
-              </h3>
-              <p className="relative mt-2 text-[13.5px] leading-relaxed text-muted">
-                {service.description}
-              </p>
-            </div>
+                <div className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-navy/[0.06] transition-colors duration-300 group-hover:bg-cyan/10">
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="h-6 w-6 text-navy"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    {icons[service.title]}
+                  </svg>
+                </div>
+
+                <h3 className="relative mt-5 font-display text-[15px] font-semibold tracking-tight text-ink">
+                  {service.title}
+                </h3>
+                <p className="relative mt-2 text-[13.5px] leading-relaxed text-muted">
+                  {service.description}
+                </p>
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>
-
-      <style>{`
-        .svc-card {
-          opacity: 1;
-        }
-        @supports (animation-timeline: view()) {
-          .svc-card {
-            opacity: 0;
-            transform: translateY(24px);
-            animation: svc-reveal linear both;
-            animation-timeline: view();
-            animation-range: entry 0% cover 25%;
-          }
-        }
-        @keyframes svc-reveal {
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .svc-card {
-            opacity: 1 !important;
-            transform: none !important;
-            animation: none !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }
