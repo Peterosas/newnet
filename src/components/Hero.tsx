@@ -24,176 +24,175 @@ export default function Hero({ onNeedHelp }: HeroProps) {
         />
 
         <div className="relative mx-auto grid max-w-6xl gap-12 px-5 pb-16 pt-14 sm:px-8 sm:pb-24 sm:pt-20 md:grid-cols-[1.1fr_0.9fr] md:items-center">
-        <div>
-          <p className="nn-reveal font-mono text-[12px] font-medium uppercase tracking-[0.14em] text-cyan [animation-delay:0ms]">
-            Computer sales &amp; engineering · Abuja
-          </p>
-          <h1 className="nn-reveal mt-3 max-w-lg font-display text-[36px] font-bold leading-[1.08] tracking-tight text-ink [animation-delay:80ms] sm:text-[48px]">
-            Tech that{" "}
-            <span className="relative inline-block whitespace-nowrap">
-              <span className="relative z-10">works</span>
-              <svg
-                className="pointer-events-none absolute -inset-x-3 -top-3 -bottom-2 h-[calc(100%+20px)] w-[calc(100%+24px)]"
-                viewBox="0 0 160 70"
-                preserveAspectRatio="none"
+          <div>
+            <p className="nn-reveal font-mono text-[12px] font-medium uppercase tracking-[0.14em] text-cyan [animation-delay:0ms]">
+              Computer sales &amp; engineering · Abuja
+            </p>
+            <h1 className="nn-reveal mt-3 max-w-lg font-display text-[36px] font-bold leading-[1.08] tracking-tight text-ink [animation-delay:80ms] sm:text-[48px]">
+              Tech that{" "}
+              <span className="relative inline-block whitespace-nowrap">
+                <span className="relative z-10">works</span>
+                <svg
+                  className="pointer-events-none absolute -inset-x-3 -top-3 -bottom-2 h-[calc(100%+20px)] w-[calc(100%+24px)]"
+                  viewBox="0 0 160 70"
+                  preserveAspectRatio="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M10 38C8 16 40 6 80 6C118 6 152 14 150 36C148 56 112 62 78 61C42 60 10 54 12 34"
+                    fill="none"
+                    stroke="#2b2e83"
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                    pathLength="1"
+                    className="nn-circle-draw text-navy"
+                  />
+                </svg>
+              </span>
+              , and people who fix it when it doesn&apos;t.
+            </h1>
+            <p className="nn-reveal mt-5 max-w-md text-[15px] leading-relaxed text-muted [animation-delay:160ms]">
+              NEW-NET supplies laptops, desktops, printers, POS and networking
+              equipment to homes and businesses across Abuja — and our own
+              engineers install, service and repair what we sell.
+            </p>
+
+            <div className="nn-reveal mt-8 flex flex-wrap items-center gap-3 [animation-delay:240ms]">
+              <button
+                onClick={onNeedHelp}
+                className="rounded-full bg-navy px-6 py-3 font-display text-[13.5px] font-semibold tracking-wide text-white transition-colors hover:bg-navy-dark"
+              >
+                Chat with us on WhatsApp
+              </button>
+              <a
+                href={callLink(primaryPhone.intl)}
+                className="rounded-full border border-line bg-white px-6 py-3 font-display text-[13.5px] font-semibold tracking-wide text-ink transition-colors hover:border-navy"
+              >
+                Call {primaryPhone.display}
+              </a>
+            </div>
+
+            <p className="nn-reveal mt-4 flex items-center gap-2 text-[12.5px] font-medium text-muted [animation-delay:280ms]">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan" />
+              </span>
+              Support online now
+            </p>
+
+            <SignalDivider className="nn-reveal mt-10 h-4 w-32 text-line [animation-delay:360ms]" />
+
+            <div className="nn-reveal mt-6 [animation-delay:440ms]">
+              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted/70">
+                What we supply
+              </p>
+              <ul className="mt-3 flex flex-wrap gap-2">
+                {business.products.map((product) => (
+                  <li
+                    key={product}
+                    className="rounded-full border border-line bg-white px-3 py-1.5 font-mono text-[11px] uppercase tracking-wide text-muted"
+                  >
+                    {product}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Signature element: how we work — sales into service */}
+          <div className="nn-reveal relative mx-auto hidden w-full max-w-sm md:block [animation-delay:200ms]">
+            <div className="nn-float relative">
+              <div
                 aria-hidden="true"
-              >
-                <path
-                  d="M10 38C8 16 40 6 80 6C118 6 152 14 150 36C148 56 112 62 78 61C42 60 10 54 12 34"
-                  fill="none"
-                  stroke="#2b2e83"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                  pathLength="1"
-                  className="nn-circle-draw text-navy"
-                />
-              </svg>
-            </span>
-            , and people who fix it when it doesn&apos;t.
-          </h1>
-          <p className="nn-reveal mt-5 max-w-md text-[15px] leading-relaxed text-muted [animation-delay:160ms]">
-            NEW-NET supplies laptops, desktops, printers, POS and networking
-            equipment to homes and businesses across Abuja — and our own
-            engineers install, service and repair what we sell.
-          </p>
-          <div className="nn-reveal mt-8 flex flex-wrap items-center gap-3 [animation-delay:240ms]">
-            <button
-              onClick={onNeedHelp}
-              className="rounded-full bg-navy px-6 py-3 font-display text-[13.5px] font-semibold tracking-wide text-white transition-colors hover:bg-navy-dark"
-            >
-              Chat with us on WhatsApp
-            </button>
-            <a
-              href={callLink(primaryPhone.intl)}
-              className="rounded-full border border-line bg-white px-6 py-3 font-display text-[13.5px] font-semibold tracking-wide text-ink transition-colors hover:border-navy"
-            >
-              Call {primaryPhone.display}
-            </a>
+                className="absolute -inset-6 rounded-[32px] bg-navy/10 blur-2xl"
+              />
+              <div className="relative rounded-[28px] border border-line bg-white p-6 shadow-[0_20px_60px_rgba(43,46,131,0.12)]">
+                <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-cyan">
+                  How we work
+                </p>
+
+                <div className="relative mt-5 pl-11">
+                  <svg
+                    className="absolute left-[15px] top-2 h-[calc(100%-16px)] w-4 text-line"
+                    viewBox="0 0 16 100"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                  >
+                    <line
+                      x1="8"
+                      y1="0"
+                      x2="8"
+                      y2="100"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeDasharray="1 8"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+
+                  <div className="relative flex gap-4 pb-8">
+                    <span className="absolute -left-11 flex h-8 w-8 items-center justify-center rounded-full border border-navy/15 bg-navy/5 text-navy">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <rect x="3" y="4" width="18" height="12" rx="1.5" />
+                        <path d="M2 20h20" />
+                      </svg>
+                    </span>
+                    <div>
+                      <p className="font-display text-[14.5px] font-semibold text-ink">
+                        We supply it
+                      </p>
+                      <p className="mt-1 text-[13px] leading-relaxed text-muted">
+                        Laptops, printers, POS and networking gear, sourced
+                        and sold direct.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="relative flex gap-4">
+                    <span className="absolute -left-11 flex h-8 w-8 items-center justify-center rounded-full border border-cyan/25 bg-cyan/10 text-cyan">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M14.7 6.3a3 3 0 0 0-4.2 4.2L4 17v3h3l6.5-6.5a3 3 0 0 0 4.2-4.2l-2.5 2.5-2-2z" />
+                      </svg>
+                    </span>
+                    <div>
+                      <p className="font-display text-[14.5px] font-semibold text-ink">
+                        Our engineers keep it running
+                      </p>
+                      <p className="mt-1 text-[13px] leading-relaxed text-muted">
+                        Same team installs, services and repairs everything
+                        we sell.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-6 rounded-2xl border border-line/70 bg-[#f7f8fb] px-4 py-3">
+                  <p className="text-[12.5px] leading-relaxed text-muted">
+                    One team, start to finish — no handing you off to a
+                    third-party repair shop.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <SignalDivider className="nn-reveal mt-10 h-4 w-32 text-line [animation-delay:320ms]" />
-          <ul className="nn-reveal mt-6 flex flex-wrap gap-x-5 gap-y-2 [animation-delay:400ms]">
-            {business.products.map((product) => (
-              <li
-                key={product}
-                className="font-mono text-[11.5px] uppercase tracking-wide text-muted"
-              >
-                {product}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Signature element: an animated computer icon badge */}
-        <div className="nn-reveal relative mx-auto hidden aspect-square w-full max-w-sm items-center justify-center md:flex [animation-delay:200ms]">
-          <div className="nn-float relative flex h-full w-full items-center justify-center">
-            {/* ambient glow */}
-            <div
-              aria-hidden="true"
-              className="absolute h-4/5 w-4/5 rounded-full bg-navy/10 blur-2xl"
-            />
-
-            <svg
-              viewBox="0 0 200 200"
-              className="relative h-full w-full text-navy"
-              aria-hidden="true"
-            >
-              {/* outer badge ring, slowly rotating */}
-              <circle
-                cx="100"
-                cy="100"
-                r="94"
-                fill="none"
-                stroke="currentColor"
-                strokeOpacity="0.12"
-                strokeWidth="1.5"
-              />
-              <circle
-                cx="100"
-                cy="100"
-                r="94"
-                fill="none"
-                stroke="currentColor"
-                strokeOpacity="0.18"
-                strokeWidth="1.5"
-                strokeDasharray="1 13"
-                className="nn-badge-spin"
-              />
-
-              {/* connectivity arcs, top-right */}
-              <g className="text-cyan">
-                <path
-                  d="M138 62c6-6 6-16 0-22"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.2"
-                  strokeLinecap="round"
-                  className="nn-wave"
-                  style={{ animationDelay: "0ms" }}
-                />
-                <path
-                  d="M147 71c11-11 11-29 0-40"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.2"
-                  strokeLinecap="round"
-                  className="nn-wave"
-                  style={{ animationDelay: "260ms" }}
-                />
-                <path
-                  d="M156 80c16-16 16-42 0-58"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.2"
-                  strokeLinecap="round"
-                  className="nn-wave"
-                  style={{ animationDelay: "520ms" }}
-                />
-              </g>
-
-              {/* laptop line-art */}
-              <rect
-                x="58"
-                y="64"
-                width="84"
-                height="54"
-                rx="5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.6"
-              />
-              <rect
-                x="66"
-                y="72"
-                width="68"
-                height="38"
-                rx="2"
-                fill="none"
-                stroke="currentColor"
-                strokeOpacity="0.35"
-                strokeWidth="1.6"
-              />
-              <path
-                d="M48 120 L152 120 L163 137 L37 137 Z"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.6"
-                strokeLinejoin="round"
-              />
-              <line
-                x1="94"
-                y1="129"
-                x2="106"
-                y2="129"
-                stroke="currentColor"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-              />
-
-              {/* power indicator, blinking */}
-              <circle cx="100" cy="91" r="3.4" className="nn-power-dot text-cyan" fill="currentColor" />
-            </svg>
-          </div>
-        </div>
         </div>
       </div>
 
@@ -215,31 +214,6 @@ export default function Hero({ onNeedHelp }: HeroProps) {
           animation: nn-float 5.5s ease-in-out infinite;
         }
 
-        @keyframes nn-badge-spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        .nn-badge-spin {
-          transform-origin: 100px 100px;
-          animation: nn-badge-spin 40s linear infinite;
-        }
-
-        @keyframes nn-wave-pulse {
-          0%, 100% { opacity: 0.25; }
-          50% { opacity: 1; }
-        }
-        .nn-wave {
-          animation: nn-wave-pulse 2.2s ease-in-out infinite;
-        }
-
-        @keyframes nn-power-blink {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.25; }
-        }
-        .nn-power-dot {
-          animation: nn-power-blink 2s ease-in-out infinite;
-        }
-
         @keyframes nn-circle-draw {
           from { stroke-dasharray: 1; stroke-dashoffset: 1; }
           to { stroke-dasharray: 1; stroke-dashoffset: 0; }
@@ -252,8 +226,7 @@ export default function Hero({ onNeedHelp }: HeroProps) {
         }
 
         @media (prefers-reduced-motion: reduce) {
-          .nn-reveal, .nn-float, .nn-badge-spin, .nn-wave, .nn-power-dot,
-          .nn-circle-draw {
+          .nn-reveal, .nn-float, .nn-circle-draw {
             animation: none !important;
             opacity: 1 !important;
             width: auto !important;

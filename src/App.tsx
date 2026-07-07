@@ -19,7 +19,7 @@ function App() {
         <About />
         <ContactBand />
       </main>
-      <Footer />
+      <Footer onNeedHelp={() => setContactOpen(true)}  />
       <ContactSheet open={contactOpen} onClose={() => setContactOpen(false)} />
     </>
   );
