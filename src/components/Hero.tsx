@@ -1,6 +1,7 @@
 import { business, callLink } from "../data/business";
 import SignalDivider from "./SignalDivider";
 import Reveal from "./Reveal";
+import Marquee from "./Marquee";
 
 type HeroProps = {
   onNeedHelp: () => void;
@@ -74,8 +75,9 @@ export default function Hero({ onNeedHelp }: HeroProps) {
                 >
                   Chat with us on WhatsApp
                 </button>
-                <a
-                  href={callLink(primaryPhone.intl)}
+
+                
+                <a  href={callLink(primaryPhone.intl)}
                   className="rounded-full border border-line bg-white px-6 py-3 font-display text-[13.5px] font-semibold tracking-wide text-ink transition-colors hover:border-navy"
                 >
                   Call {primaryPhone.display}
@@ -93,26 +95,24 @@ export default function Hero({ onNeedHelp }: HeroProps) {
               </p>
             </Reveal>
 
-            <Reveal delay={360}>
-              <SignalDivider className="mt-10 h-4 w-32 text-line" />
+            <Reveal delay={320}>
+              <div className="mt-5 max-w-md">
+                <Marquee position="static" speed={70} gap={40}>
+                  {business.products.map((product) => (
+                    <span
+                      key={product}
+                      className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-muted"
+                    >
+                      <span className="h-1 w-1 rounded-full bg-cyan" />
+                      {product}
+                    </span>
+                  ))}
+                </Marquee>
+              </div>
             </Reveal>
 
-            <Reveal delay={440}>
-              <div className="mt-6">
-                <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted/70">
-                  What we supply
-                </p>
-                <ul className="mt-3 flex flex-wrap gap-2">
-                  {business.products.map((product) => (
-                    <li
-                      key={product}
-                      className="rounded-full border border-line bg-white px-3 py-1.5 font-mono text-[11px] uppercase tracking-wide text-muted"
-                    >
-                      {product}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <Reveal delay={360}>
+              <SignalDivider className="mt-8 h-4 w-32 text-line" />
             </Reveal>
           </div>
 
