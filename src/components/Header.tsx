@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { business } from "../data/business";
+import logoText from "../assets/logo-text.png";
 
 type HeaderProps = {
   onNeedHelp: () => void;
@@ -10,43 +11,6 @@ const navLinks = [
   { href: "#services", label: "Services" },
   { href: "#contact", label: "Contact" },
 ];
-
-function LogoMark({ scrolled }: { scrolled: boolean }) {
-  return (
-    <svg
-      width={scrolled ? "30" : "34"}
-      height={scrolled ? "30" : "34"}
-      viewBox="0 0 40 40"
-      aria-hidden="true"
-      className="transition-all duration-300"
-    >
-      <defs>
-        <linearGradient id="brandGradient" x1="0" x2="1">
-          <stop offset="0%" stopColor="#2b2e83" />
-          <stop offset="100%" stopColor="#5b5ff5" />
-        </linearGradient>
-      </defs>
-      <rect
-        x="2"
-        y="2"
-        width="36"
-        height="36"
-        rx="12"
-        fill="white"
-        stroke="url(#brandGradient)"
-        strokeWidth="2"
-      />
-      <polyline
-        points="14,27 14,12 26,27 26,12"
-        fill="none"
-        stroke="url(#brandGradient)"
-        strokeWidth="2.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
 
 export default function Header({ onNeedHelp }: HeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -139,7 +103,7 @@ export default function Header({ onNeedHelp }: HeaderProps) {
             "relative rounded-2xl border transition-all duration-300",
             scrolled
               ? "border-black/10 bg-white/85 shadow-[0_10px_40px_rgba(15,23,42,0.10)] backdrop-blur-xl"
-              : "border-black/5 bg-white/70 backdrop-blur-lg",
+              : "border-black/0  backdrop-blur-lg",
           ].join(" ")}
         >
           <div
@@ -148,26 +112,15 @@ export default function Header({ onNeedHelp }: HeaderProps) {
               scrolled ? "h-14" : "h-16",
             ].join(" ")}
           >
-            <a href="#top" className="flex items-center gap-3">
-              <LogoMark scrolled={scrolled} />
-              <div className="flex flex-col leading-none">
-                <span
-                  className={[
-                    "font-display font-bold tracking-tight text-ink transition-all duration-300",
-                    scrolled ? "text-[15px] sm:text-[16px]" : "text-[16px] sm:text-[17px]",
-                  ].join(" ")}
-                >
-                  {business.name}
-                </span>
-                <span
-                  className={[
-                    "hidden font-medium tracking-[0.18em] text-muted/80 transition-all duration-300 sm:block",
-                    scrolled ? "text-[10px] opacity-0 translate-y-[-2px]" : "text-[11px] opacity-100",
-                  ].join(" ")}
-                >
-                  MODERN SERVICE EXPERIENCE
-                </span>
-              </div>
+            <a href="#top" className="flex items-center">
+              <img
+                src={logoText}
+                alt={business.name}
+                className={[
+                  "w-auto transition-all duration-300",
+                  scrolled ? "h-8" : "h-9 sm:h-10",
+                ].join(" ")}
+              />
             </a>
 
             <nav className="hidden md:flex md:items-center">
@@ -181,8 +134,8 @@ export default function Header({ onNeedHelp }: HeaderProps) {
                   const isActive = activeSection === link.href;
 
                   return (
-                    <a
-                      key={link.href}
+                    
+                    <a  key={link.href}
                       href={link.href}
                       aria-current={isActive ? "page" : undefined}
                       className={[
@@ -208,8 +161,8 @@ export default function Header({ onNeedHelp }: HeaderProps) {
             </nav>
 
             <div className="flex items-center gap-2 sm:gap-3">
-              <a
-                href={"tel:" + business.phone}
+              
+              <a  href={"tel:" + business.phone}
                 className="hidden lg:flex items-center gap-2 rounded-full border border-black/5 bg-white/70 px-3 py-2 text-[12px] font-medium text-muted transition-all duration-300 hover:border-navy/20 hover:text-ink"
               >
                 <svg

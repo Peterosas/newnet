@@ -6,6 +6,7 @@ import About from "./components/About";
 import ContactBand from "./components/ContactBand";
 import Footer from "./components/Footer";
 import ContactSheet from "./components/ContactSheet";
+import FeaturedEquipment from "./components/FeaturedEquipment";
 
 function App() {
   const [contactOpen, setContactOpen] = useState(false);
@@ -16,6 +17,7 @@ function App() {
       <main>
         <Hero onNeedHelp={() => setContactOpen(true)} />
         <Services />
+        <FeaturedEquipment />
         <About />
         <ContactBand />
       </main>

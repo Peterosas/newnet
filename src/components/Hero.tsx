@@ -29,7 +29,7 @@ export default function Hero({ onNeedHelp }: HeroProps) {
           <div>
             <Reveal delay={0}>
               <p className="font-mono text-[12px] font-medium uppercase tracking-[0.14em] text-cyan">
-                Computer sales &amp; engineering · Abuja
+                Computer &amp; POS sales · Nationwide delivery from Abuja
               </p>
             </Reveal>
 
@@ -61,9 +61,10 @@ export default function Hero({ onNeedHelp }: HeroProps) {
 
             <Reveal delay={160}>
               <p className="mt-5 max-w-md text-[15px] leading-relaxed text-muted">
-                NEW-NET supplies laptops, desktops, printers, POS and networking
-                equipment to homes and businesses across Abuja — and our own
-                engineers install, service and repair what we sell.
+                NEW-NET supplies laptops, desktops, printers, POS systems,
+                barcode and biometric equipment, CCTV, networking gear and
+                more — delivered anywhere in Nigeria, with our own engineers
+                on hand to install, service and repair what we sell.
               </p>
             </Reveal>
 
@@ -76,8 +77,8 @@ export default function Hero({ onNeedHelp }: HeroProps) {
                   Chat with us on WhatsApp
                 </button>
 
-                
-                <a  href={callLink(primaryPhone.intl)}
+                <a
+                  href={callLink(primaryPhone.intl)}
                   className="rounded-full border border-line bg-white px-6 py-3 font-display text-[13.5px] font-semibold tracking-wide text-ink transition-colors hover:border-navy"
                 >
                   Call {primaryPhone.display}
@@ -172,8 +173,8 @@ export default function Hero({ onNeedHelp }: HeroProps) {
                         We supply it
                       </p>
                       <p className="mt-1 text-[13px] leading-relaxed text-muted">
-                        Laptops, printers, POS and networking gear, sourced
-                        and sold direct.
+                        Computers, POS, security and networking gear,
+                        sourced and shipped nationwide.
                       </p>
                     </div>
                   </div>

@@ -3,7 +3,7 @@ import Reveal from "./Reveal";
 
 const facts = [
   {
-    label: "Based in",
+    label: "Headquartered in",
     value: "Wuse Zone 3, Abuja",
     icon: (
       <>
@@ -13,18 +13,17 @@ const facts = [
     ),
   },
   {
-    label: "Specialty",
-    value: "Laptops & desktops",
+    label: "We deliver to",
+    value: "Anywhere in Nigeria",
     icon: (
       <>
-        <rect x="4" y="5" width="16" height="10.5" rx="1.6" />
-        <path d="M2.5 19h19M9.5 15.5v3.2M14.5 15.5v3.2" />
+        <path d="M3 12h18M12 3c2.5 2.7 3.8 6 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-6-3.8-9s1.3-6.3 3.8-9Z" />
       </>
     ),
   },
   {
     label: "Also handles",
-    value: "Networking & repairs",
+    value: "Networking, POS & security setup",
     icon: (
       <>
         <circle cx="12" cy="6" r="1.9" />
@@ -60,11 +59,11 @@ export default function About() {
               A computer shop that also fixes things.
             </h2>
             <p className="mt-4 max-w-md text-[14.5px] leading-relaxed text-muted">
-              NEW-NET Services Nigeria Limited has been supplying computers and
-              accessories to individuals and businesses in Abuja, alongside
-              hands-on networking, maintenance and engineering support. We're
-              not just a shop — our engineers set up, service and troubleshoot
-              what we sell.
+              NEW-NET Services Nigeria Limited supplies computers, POS,
+              security and networking equipment to individuals and
+              businesses nationwide, alongside hands-on installation,
+              maintenance and engineering support. We're not just a shop —
+              our engineers set up, service and troubleshoot what we sell.
             </p>
             <SignalDivider className="mt-8 h-4 w-32 text-line" />
           </div>

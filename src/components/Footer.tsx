@@ -2,6 +2,7 @@ import { business, callLink } from "../data/business";
 import SignalDivider from "./SignalDivider";
 import ScrollToTop from "./ScrollToTop";
 import Reveal, { RevealGroup } from "./Reveal";
+import logoText from "../assets/logo-text.png";
 
 const exploreLinks = [
   { href: "#about", label: "About" },
@@ -43,8 +44,9 @@ export default function Footer({ onNeedHelp }: FooterProps) {
               >
                 Chat with us on WhatsApp
               </button>
-              
-              <a  href={callLink(primaryPhone.intl)}
+
+              <a
+                href={callLink(primaryPhone.intl)}
                 className="rounded-full border border-white/15 px-6 py-3 font-display text-[13.5px] font-semibold tracking-wide text-white/85 transition-colors hover:border-cyan/50 hover:text-white"
               >
                 Call {primaryPhone.display}
@@ -59,35 +61,15 @@ export default function Footer({ onNeedHelp }: FooterProps) {
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr]">
           <RevealGroup stagger={100}>
             <div>
-              
-              <a  href="#top"
-                className="flex items-center gap-2 text-white/85 transition-colors hover:text-white"
-              >
-                <svg width="26" height="26" viewBox="0 0 40 40" aria-hidden="true">
-                  <circle
-                    cx="20"
-                    cy="20"
-                    r="19"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  />
-                  <polyline
-                    points="14,28 14,12 26,28 26,12"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                <span className="font-display text-[15px] font-semibold tracking-tight">
-                  {business.name}
+              <a href="#top" className="inline-flex items-center">
+                <span className="rounded-xl bg-white/95 px-3 py-2 shadow-[0_8px_20px_rgba(0,0,0,0.15)] transition-transform duration-300 hover:-translate-y-0.5">
+                  <img src={logoText} alt={business.name} className="h-7 w-auto" />
                 </span>
               </a>
               <p className="mt-4 max-w-xs text-[13.5px] leading-relaxed text-white/50">
-                {business.fullName} — computer sales and engineering across
-                Abuja. We install, service and repair what we sell.
+                {business.fullName} — computers, POS, security and
+                networking equipment, delivered nationwide. We install,
+                service and repair what we sell.
               </p>
 
               {/*
@@ -105,8 +87,8 @@ export default function Footer({ onNeedHelp }: FooterProps) {
               <ul className="mt-4 flex flex-col gap-2.5">
                 {exploreLinks.map((link) => (
                   <li key={link.href}>
-                    
-                    <a  href={link.href}
+                    <a
+                      href={link.href}
                       className="text-[13.5px] text-white/60 transition-colors hover:text-cyan"
                     >
                       {link.label}
@@ -124,8 +106,8 @@ export default function Footer({ onNeedHelp }: FooterProps) {
               <ul className="mt-4 flex flex-col gap-2.5">
                 {business.phones.map((phone) => (
                   <li key={phone.intl}>
-                    
-                    <a  href={callLink(phone.intl)}
+                    <a
+                      href={callLink(phone.intl)}
                       className="text-[13.5px] text-white/60 transition-colors hover:text-cyan"
                     >
                       {phone.display}
