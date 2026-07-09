@@ -1,18 +1,25 @@
 // Business details taken directly from the NEW-NET company card.
 // Update this file only — every component reads from here.
+
+const phones = [
+  { label: "Primary", display: "0803 787 6703", intl: "2348037876703" },
+  { label: "Alt", display: "0805 688 2218", intl: "2348056882218" },
+  { label: "Alt", display: "0803 952 4104", intl: "2348039524104" },
+] as const;
+
 export const business = {
   name: "NEW-NET",
   fullName: "New-Net Services Nigeria Limited",
   tagline: "Computer Sales",
-  phones: [
-    { label: "Primary", display: "0803 787 6703", intl: "2348037876703" },
-    { label: "Alt", display: "0805 688 2218", intl: "2348056882218" },
-    { label: "Alt", display: "0803 952 4104", intl: "2348039524104" },
-  ],
+  phones,
+  // Convenience aliases for the primary number, so components that expect
+  // a single `business.phone` still work without digging into `phones[]`.
+  phone: phones[0].display,
+  phoneIntl: phones[0].intl,
   // Number used for the WhatsApp click-to-chat link
   whatsappIntl: "2348037876703",
   emails: ["gregeze@new-netservices.com", "newnetnig@yahoo.com"],
-  website: "www.new-netservices.com",
+  website: "[www.new-netservices.com](https://www.new-netservices.com)",
   addresses: [
     "Suite 9, (Back Space) Zone 3 Shopping Complex, Wuse, Abuja",
     "Suite A2, Intercontinental Plaza, Plot 507, Adjacent Zone 3 Shopping Complex, Wuse Zone 3, Abuja",

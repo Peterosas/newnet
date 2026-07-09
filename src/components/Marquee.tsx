@@ -40,8 +40,8 @@ export default function Marquee({
   const directionRef = useRef(reverse ? 1 : -1);
   const pausedRef = useRef(false);
   const nudgeUntilRef = useRef(0);
-  const rafRef = useRef<number>();
-  const lastTsRef = useRef<number>();
+  const rafRef = useRef<number | undefined>(undefined);
+  const lastTsRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");

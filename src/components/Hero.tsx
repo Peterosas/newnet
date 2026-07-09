@@ -11,7 +11,7 @@ export default function Hero({ onNeedHelp }: HeroProps) {
   const primaryPhone = business.phones[0];
 
   return (
-    <section id="top" className="bg-[#eef0f4] px-3 pb-3 pt-3 sm:px-5 sm:pb-5 sm:pt-5">
+    <section id="top" className="overflow-x-hidden bg-[#eef0f4] px-3 pb-3 pt-3 sm:px-5 sm:pb-5 sm:pt-5">
       <div className="relative overflow-hidden rounded-[26px] bg-paper sm:rounded-[34px]">
         {/* faint dot-grid backdrop */}
         <div
@@ -25,8 +25,8 @@ export default function Hero({ onNeedHelp }: HeroProps) {
           }}
         />
 
-        <div className="relative mx-auto grid max-w-6xl gap-12 px-5 pb-16 pt-14 sm:px-8 sm:pb-24 sm:pt-20 md:grid-cols-[1.1fr_0.9fr] md:items-center">
-          <div>
+        <div className="relative mx-auto grid min-w-0 max-w-6xl gap-12 px-5 pb-16 pt-14 sm:px-8 sm:pb-24 sm:pt-20 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+          <div className="min-w-0">
             <Reveal delay={0}>
               <p className="font-mono text-[12px] font-medium uppercase tracking-[0.14em] text-cyan">
                 Computer &amp; POS sales · Nationwide delivery from Abuja
@@ -34,7 +34,7 @@ export default function Hero({ onNeedHelp }: HeroProps) {
             </Reveal>
 
             <Reveal delay={80}>
-              <h1 className="mt-3 max-w-lg font-display text-[36px] font-bold leading-[1.08] tracking-tight text-ink sm:text-[48px]">
+              <h1 className="mt-3 max-w-lg break-words font-display text-[36px] font-bold leading-[1.08] tracking-tight text-ink sm:text-[48px]">
                 Tech that{" "}
                 <span className="relative inline-block whitespace-nowrap">
                   <span className="relative z-10">works</span>
@@ -60,10 +60,10 @@ export default function Hero({ onNeedHelp }: HeroProps) {
             </Reveal>
 
             <Reveal delay={160}>
-              <p className="mt-5 max-w-md text-[15px] leading-relaxed text-muted">
+              <p className="mt-5 max-w-md break-words text-[15px] leading-relaxed text-muted">
                 NEW-NET supplies laptops, desktops, printers, POS systems,
                 barcode and biometric equipment, CCTV, networking gear and
-                more — delivered anywhere in Nigeria, with our own engineers
+                more — delivers anywhere in Nigeria, with our own engineers
                 on hand to install, service and repair what we sell.
               </p>
             </Reveal>
@@ -97,7 +97,7 @@ export default function Hero({ onNeedHelp }: HeroProps) {
             </Reveal>
 
             <Reveal delay={320}>
-              <div className="mt-5 max-w-md">
+              <div className="mt-5 w-full min-w-0 max-w-md">
                 <Marquee position="static" speed={70} gap={40}>
                   {business.products.map((product) => (
                     <span
@@ -121,7 +121,7 @@ export default function Hero({ onNeedHelp }: HeroProps) {
           <Reveal
             delay={200}
             direction="left"
-            className="relative mx-auto hidden w-full max-w-sm md:block"
+            className="relative mx-auto hidden w-full max-w-sm min-w-0 md:block"
           >
             <div className="nn-float relative">
               <div

@@ -71,7 +71,6 @@ export default function Reveal({
       },
       { threshold }
     );
-
     observer.observe(node);
     return () => observer.disconnect();
   }, [once, threshold]);
@@ -79,7 +78,6 @@ export default function Reveal({
   const { x, y } = offsets[direction];
 
   return (
-    // @ts-expect-error -- ref typing is intentionally loose to allow `as`
     <Tag
       ref={ref}
       className={className}
@@ -105,15 +103,17 @@ export default function Reveal({
 export function RevealGroup({
   children,
   stagger = 90,
+  delay = 0,
   ...props
 }: Omit<RevealProps, "delay" | "children"> & {
   children: ReactNode;
   stagger?: number;
+  delay?: number;
 }) {
   return (
     <>
       {Children.toArray(children).map((child, i) => (
-        <Reveal key={i} delay={i * stagger} {...props}>
+        <Reveal key={i} delay={delay + i * stagger} {...props}>
           {child}
         </Reveal>
       ))}
