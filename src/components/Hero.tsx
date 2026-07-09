@@ -7,11 +7,17 @@ type HeroProps = {
   onNeedHelp: () => void;
 };
 
+const stats = [
+  { label: "Years in business", value: "14+" },
+  { label: "Delivery coverage", value: "Nationwide" },
+  { label: "Support", value: "Same team" },
+];
+
 export default function Hero({ onNeedHelp }: HeroProps) {
   const primaryPhone = business.phones[0];
 
   return (
-    <section id="top" className="overflow-x-hidden bg-[#eef0f4] px-3 pb-3 pt-3 sm:px-5 sm:pb-5 sm:pt-5">
+    <section id="top" className="scroll-mt-24 overflow-x-hidden bg-surface px-3 pb-3 pt-3 sm:px-5 sm:pb-5 sm:pt-5">
       <div className="relative overflow-hidden rounded-[26px] bg-paper sm:rounded-[34px]">
         {/* faint dot-grid backdrop */}
         <div
@@ -25,33 +31,61 @@ export default function Hero({ onNeedHelp }: HeroProps) {
           }}
         />
 
+        {/* diagonal color slice — adds editorial energy without covering content */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-1/4 -top-1/3 h-[140%] w-[65%] rotate-[-14deg] bg-gradient-to-b from-navy/[0.07] via-cyan/[0.06] to-transparent"
+        />
+
+        {/* decorative gradient orbs for atmosphere */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-24 -top-24 h-80 w-80 rounded-full bg-navy/10 blur-[100px]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-16 top-1/3 h-72 w-72 rounded-full bg-cyan/15 blur-[100px]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute bottom-0 left-1/3 h-64 w-64 rounded-full bg-amber/15 blur-[110px]"
+        />
+
         <div className="relative mx-auto grid min-w-0 max-w-6xl gap-12 px-5 pb-16 pt-14 sm:px-8 sm:pb-24 sm:pt-20 md:grid-cols-[1.1fr_0.9fr] md:items-center">
           <div className="min-w-0">
             <Reveal delay={0}>
-              <p className="font-mono text-[12px] font-medium uppercase tracking-[0.14em] text-cyan">
+              <p className="inline-flex items-center gap-2 rounded-full bg-navy px-4 py-2 font-mono text-[11.5px] font-semibold uppercase tracking-[0.12em] text-white shadow-[0_8px_20px_rgba(43,46,131,0.28)]">
+                <span className="h-1.5 w-1.5 rounded-full bg-cyan" />
                 Computer &amp; POS sales · Nationwide delivery from Abuja
               </p>
             </Reveal>
 
             <Reveal delay={80}>
-              <h1 className="mt-3 max-w-lg break-words font-display text-[36px] font-bold leading-[1.08] tracking-tight text-ink sm:text-[48px]">
+              <h1 className="mt-5 max-w-lg break-words font-display text-[38px] font-extrabold leading-[1.06] tracking-tight text-ink sm:text-[52px]">
                 Tech that{" "}
-                <span className="relative inline-block whitespace-nowrap">
+                <span className="relative inline-block whitespace-nowrap text-cyan-deep">
                   <span className="relative z-10">works</span>
                   <svg
-                    className="pointer-events-none absolute -inset-x-3 -top-3 -bottom-2 h-[calc(100%+20px)] w-[calc(100%+24px)]"
-                    viewBox="0 0 160 70"
+                    className="pointer-events-none absolute -inset-x-2 -bottom-3 h-4 w-[calc(100%+16px)]"
+                    viewBox="0 0 140 20"
                     preserveAspectRatio="none"
                     aria-hidden="true"
                   >
+                    <defs>
+                      <linearGradient id="nn-underline-grad" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0%" stopColor="#2b2e83" />
+                        <stop offset="55%" stopColor="#17a3e8" />
+                        <stop offset="100%" stopColor="#f2a93c" />
+                      </linearGradient>
+                    </defs>
                     <path
-                      d="M10 38C8 16 40 6 80 6C118 6 152 14 150 36C148 56 112 62 78 61C42 60 10 54 12 34"
+                      d="M4 12C30 4 100 4 136 12"
                       fill="none"
-                      stroke="#2b2e83"
-                      strokeWidth="4"
+                      stroke="url(#nn-underline-grad)"
+                      strokeWidth="5"
                       strokeLinecap="round"
                       pathLength="1"
-                      className="nn-circle-draw text-navy"
+                      className="nn-circle-draw"
                     />
                   </svg>
                 </span>
@@ -60,7 +94,7 @@ export default function Hero({ onNeedHelp }: HeroProps) {
             </Reveal>
 
             <Reveal delay={160}>
-              <p className="mt-5 max-w-md break-words text-[15px] leading-relaxed text-muted">
+              <p className="mt-6 max-w-md break-words text-[15.5px] leading-relaxed text-muted">
                 NEW-NET supplies laptops, desktops, printers, POS systems,
                 barcode and biometric equipment, CCTV, networking gear and
                 more — delivers anywhere in Nigeria, with our own engineers
@@ -68,26 +102,26 @@ export default function Hero({ onNeedHelp }: HeroProps) {
               </p>
             </Reveal>
 
-            <Reveal delay={240}>
+            <Reveal delay={220}>
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <button
                   onClick={onNeedHelp}
-                  className="rounded-full bg-navy px-6 py-3 font-display text-[13.5px] font-semibold tracking-wide text-white transition-colors hover:bg-navy-dark"
+                  className="rounded-full bg-gradient-to-r from-navy to-cyan-deep px-7 py-3.5 font-display text-[14px] font-bold tracking-wide text-white shadow-[0_12px_30px_rgba(43,46,131,0.26)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_36px_rgba(23,163,232,0.34)]"
                 >
                   Chat with us on WhatsApp
                 </button>
 
                 <a
                   href={callLink(primaryPhone.intl)}
-                  className="rounded-full border border-line bg-white px-6 py-3 font-display text-[13.5px] font-semibold tracking-wide text-ink transition-colors hover:border-navy"
+                  className="rounded-full border-2 border-ink/10 bg-white px-7 py-3.5 font-display text-[14px] font-bold tracking-wide text-ink transition-colors hover:border-cyan hover:text-cyan-deep"
                 >
                   Call {primaryPhone.display}
                 </a>
               </div>
             </Reveal>
 
-            <Reveal delay={280}>
-              <p className="mt-4 flex items-center gap-2 text-[12.5px] font-medium text-muted">
+            <Reveal delay={260}>
+              <p className="mt-4 flex items-center gap-2 text-[12.5px] font-semibold text-muted">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan opacity-60" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan" />
@@ -96,8 +130,37 @@ export default function Hero({ onNeedHelp }: HeroProps) {
               </p>
             </Reveal>
 
-            <Reveal delay={320}>
-              <div className="mt-5 w-full min-w-0 max-w-md">
+            {/* trust-stat row — solid color chips for extra energy */}
+            <Reveal delay={300}>
+              <div className="mt-7 flex flex-wrap gap-2.5">
+                {stats.map((stat, i) => {
+                  const styles = [
+                    "bg-navy text-white",
+                    "bg-cyan-deep text-white",
+                    "bg-amber text-navy-dark",
+                  ];
+                  return (
+                    <div
+                      key={stat.label}
+                      className={[
+                        "rounded-2xl px-4 py-2.5 shadow-[0_8px_18px_rgba(15,17,45,0.12)]",
+                        styles[i % styles.length],
+                      ].join(" ")}
+                    >
+                      <p className="font-display text-[15px] font-extrabold leading-tight">
+                        {stat.value}
+                      </p>
+                      <p className="mt-0.5 text-[10.5px] font-semibold uppercase tracking-[0.08em] opacity-85">
+                        {stat.label}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+            </Reveal>
+
+            <Reveal delay={340}>
+              <div className="mt-7 w-full min-w-0 max-w-md">
                 <Marquee position="static" speed={70} gap={40}>
                   {business.products.map((product) => (
                     <span
@@ -112,7 +175,7 @@ export default function Hero({ onNeedHelp }: HeroProps) {
               </div>
             </Reveal>
 
-            <Reveal delay={360}>
+            <Reveal delay={380}>
               <SignalDivider className="mt-8 h-4 w-32 text-line" />
             </Reveal>
           </div>
@@ -126,10 +189,23 @@ export default function Hero({ onNeedHelp }: HeroProps) {
             <div className="nn-float relative">
               <div
                 aria-hidden="true"
-                className="absolute -inset-6 rounded-[32px] bg-navy/10 blur-2xl"
+                className="absolute -inset-6 rounded-[32px] bg-gradient-to-br from-navy/15 via-amber/10 to-cyan/15 blur-2xl"
               />
-              <div className="relative rounded-[28px] border border-line bg-white p-6 shadow-[0_20px_60px_rgba(43,46,131,0.12)]">
-                <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-cyan">
+
+              {/* solid badge ribbon, Konga-style confident accent */}
+              <div className="absolute -right-3 -top-3 z-10 rotate-3 rounded-xl bg-amber px-3 py-1.5 shadow-[0_10px_22px_rgba(217,138,28,0.35)]">
+                <p className="font-display text-[11px] font-extrabold uppercase tracking-[0.06em] text-navy-dark">
+                  Trusted supplier
+                </p>
+              </div>
+
+              <div className="relative overflow-hidden rounded-[28px] border border-line bg-white p-6 shadow-[0_25px_70px_rgba(43,46,131,0.16)]">
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-navy via-amber to-cyan-deep"
+                />
+
+                <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-cyan-deep">
                   How we work
                 </p>
 
@@ -153,7 +229,7 @@ export default function Hero({ onNeedHelp }: HeroProps) {
                   </svg>
 
                   <div className="relative flex gap-4 pb-8">
-                    <span className="absolute -left-11 flex h-8 w-8 items-center justify-center rounded-full border border-navy/15 bg-navy/5 text-navy">
+                    <span className="absolute -left-11 flex h-8 w-8 items-center justify-center rounded-full bg-amber text-navy-dark shadow-[0_6px_14px_rgba(217,138,28,0.3)]">
                       <svg
                         width="16"
                         height="16"
@@ -180,7 +256,7 @@ export default function Hero({ onNeedHelp }: HeroProps) {
                   </div>
 
                   <div className="relative flex gap-4">
-                    <span className="absolute -left-11 flex h-8 w-8 items-center justify-center rounded-full border border-cyan/25 bg-cyan/10 text-cyan">
+                    <span className="absolute -left-11 flex h-8 w-8 items-center justify-center rounded-full bg-cyan-deep text-white shadow-[0_6px_14px_rgba(13,132,194,0.3)]">
                       <svg
                         width="16"
                         height="16"
@@ -206,8 +282,8 @@ export default function Hero({ onNeedHelp }: HeroProps) {
                   </div>
                 </div>
 
-                <div className="mt-6 rounded-2xl border border-line/70 bg-[#f7f8fb] px-4 py-3">
-                  <p className="text-[12.5px] leading-relaxed text-muted">
+                <div className="mt-6 rounded-2xl bg-navy px-4 py-3.5">
+                  <p className="text-[12.5px] leading-relaxed text-white/90">
                     One team, start to finish — no handing you off to a
                     third-party repair shop.
                   </p>

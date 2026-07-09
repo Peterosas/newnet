@@ -2,14 +2,34 @@
 @theme {
   /* Color — drawn from the NEW-NET mark: deep indigo + signal cyan */
   --color-navy: #2b2e83;
-  --color-navy-dark: #1c1e57;
-  --color-cyan: #22a9df;
-  --color-cyan-soft: #e7f6fc;
-  --color-ink: #14162e;
-  --color-muted: #5b5f7c;
-  --color-paper: #f6f7fb;
-  --color-line: #e2e5ee;
+  --color-navy-dark: #1a1c4d;
+  --color-navy-light: #3d3fa0; /* for hover states, gradients */
+
+  --color-cyan: #17a3e8;       /* slightly more saturated/confident */
+  --color-cyan-deep: #0d84c2;
+  --color-cyan-soft: #eaf8fe;
+  --color-cyan-tint: #d3f1fc;  /* for badges/pills, more visible than cyan-soft */
+
+  /* Warm accent — used sparingly, as counterpoint to the cool navy/cyan system.
+     Good for: category tags, small highlight badges, "featured" markers,
+     hover accents on dark sections. Not meant to compete with cyan as a
+     second primary — think seasoning, not a second brand color. */
+  --color-amber: #f2a93c;
+  --color-amber-deep: #d98a1c;
+  --color-amber-soft: #fdf3e2;
+  --color-amber-tint: #fbe4bc;
+
+  --color-ink: #12142b;
+  --color-muted: #4c5170;      /* darkened for better body-copy contrast */
+  --color-subtle: #8489a6;     /* for true secondary/caption text */
+
+  --color-paper: #ffffff;
+  --color-surface: #fbfcfe;    /* barely-there tint instead of visible gray */
+  --color-surface-alt: #f2f6fb; /* slightly deeper, for section separation */
+  --color-line: #e7eaf1;
+
   --color-whatsapp: #25d366;
+
   --font-display: "Nunito", sans-serif;
   --font-body: "Nunito", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;

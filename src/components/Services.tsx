@@ -28,6 +28,15 @@ const icons: Record<string, ReactElement> = {
   ),
 };
 
+// Solid accent per icon — cycles navy / cyan-deep / amber so the badges
+// have some variety. Hover state below is intentionally the same for
+// every card, so the color lives only in the icon, not the whole card.
+const accents = [
+  { iconBg: "bg-navy", iconText: "text-white" },
+  { iconBg: "bg-cyan-deep", iconText: "text-white" },
+  { iconBg: "bg-amber", iconText: "text-navy-dark" },
+];
+
 export default function Services() {
   return (
     <section id="services" className="relative overflow-hidden bg-white">
@@ -35,12 +44,11 @@ export default function Services() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-line to-transparent"
       />
-
       <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
         <Reveal>
           <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="font-mono text-[12px] font-medium uppercase tracking-[0.14em] text-cyan">
+              <p className="font-mono text-[12px] font-medium uppercase tracking-[0.14em] text-cyan-deep">
                 What we do
               </p>
               <h2 className="mt-2 max-w-lg font-display text-[28px] font-bold tracking-tight text-ink sm:text-[34px]">
@@ -56,39 +64,48 @@ export default function Services() {
         </Reveal>
 
         <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {business.services.map((service, i) => (
-            <Reveal key={service.title} delay={i * 90} distance={24}>
-              <div className="group relative overflow-hidden rounded-2xl border border-line bg-paper p-6 transition-all duration-300 hover:-translate-y-1 hover:border-navy/30 hover:shadow-[0_18px_40px_-18px_rgba(43,46,131,0.28)]">
-                {/* soft corner accent, grows on hover */}
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute -right-8 -top-8 h-20 w-20 rounded-full bg-navy/[0.04] transition-transform duration-500 ease-out group-hover:scale-125"
-                />
+          {business.services.map((service, i) => {
+            const accent = accents[i % accents.length];
 
-                <div className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-navy/[0.06] transition-colors duration-300 group-hover:bg-cyan/10">
-                  <svg
-                    viewBox="0 0 24 24"
-                    className="h-6 w-6 text-navy"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+            return (
+              <Reveal key={service.title} delay={i * 90} distance={24}>
+                <div className="group relative overflow-hidden rounded-2xl border border-line bg-paper p-6 transition-all duration-300 hover:-translate-y-1 hover:border-navy/25 hover:shadow-[0_18px_40px_-18px_rgba(43,46,131,0.22)]">
+                  {/* soft corner accent, grows on hover */}
+                  <span
                     aria-hidden="true"
-                  >
-                    {icons[service.title]}
-                  </svg>
-                </div>
+                    className="pointer-events-none absolute -right-8 -top-8 h-20 w-20 rounded-full bg-navy/[0.04] transition-transform duration-500 ease-out group-hover:scale-125"
+                  />
 
-                <h3 className="relative mt-5 font-display text-[15px] font-semibold tracking-tight text-ink">
-                  {service.title}
-                </h3>
-                <p className="relative mt-2 text-[13.5px] leading-relaxed text-muted">
-                  {service.description}
-                </p>
-              </div>
-            </Reveal>
-          ))}
+                  <div
+                    className={[
+                      "relative flex h-12 w-12 items-center justify-center rounded-xl shadow-[0_8px_18px_-6px_rgba(15,17,45,0.22)]",
+                      accent.iconBg,
+                    ].join(" ")}
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      className={["h-6 w-6", accent.iconText].join(" ")}
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      {icons[service.title]}
+                    </svg>
+                  </div>
+
+                  <h3 className="relative mt-5 font-display text-[15px] font-semibold tracking-tight text-ink">
+                    {service.title}
+                  </h3>
+                  <p className="relative mt-2 text-[13.5px] leading-relaxed text-muted">
+                    {service.description}
+                  </p>
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>
